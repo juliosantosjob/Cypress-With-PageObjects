@@ -28,7 +28,7 @@ describe('Cadastro', () => {
     registerPage.verifyError('Informe um CEP válido')
   })
 
-  it.only('Não deve realizar cadastro com campos obrigatórios em branco', () => {
+  it('Não deve realizar cadastro com campos obrigatórios em branco', () => {
     homePage.goToHome()
     registerPage.accessRegisterPage()
     registerPage.submitForm()
