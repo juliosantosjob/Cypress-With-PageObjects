@@ -36,7 +36,7 @@ describe('Cadastro', () => {
       'Informe um número maior que zero'
     ]
 
-    for (const output : messages) {
+    for (const output of messages) {
       RegisterPage.verifyError(output)
     }
   })
