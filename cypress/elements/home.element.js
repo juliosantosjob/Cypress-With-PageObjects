@@ -1,3 +1,4 @@
-export const ELEMENTS = {
+
+export const ELEMENTS_HOME = {
     tagTitle: 'h1',
 }

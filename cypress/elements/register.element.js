@@ -1,6 +1,6 @@
-export const ELEMENTS = {
+
+export const ELEMENTS_REGISTER  = {
     buttonRegistDonation: 'strong',
-    tagTitle: 'h1',
     tagDescriptionDonation: 'p',
     urlCep: 'https://viacep.com.br/**',
     inputName: '[name="name"]',

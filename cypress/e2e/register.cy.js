@@ -1,23 +1,32 @@
 import RegisterPage from '../pages/register.page'
+import { generatePoint } from '../utils/pointDonation'
 
-describe('Cadastro', () => {  
-  it('Cadastro de ponto de doação com sucesso', () => { 
+describe('Cadastro', () => {
+  it('Cadastro de ponto de doação com sucesso', () => {
+    let point = generatePoint()
+
     RegisterPage.goToRegisterPage()
-    RegisterPage.fillForm('Praça 08', 'test@example.com', '07144000', '2000', 'Rua dos bobos')
+    RegisterPage.fillForm(point)
     RegisterPage.submit()
     RegisterPage.verifyRegisterDonation('Você fez a diferença!')
   })
 
   it('Não deve realizar cadastro com email invalido', () => {
+    let point = generatePoint()
+    point.email = 'example.com'
+
     RegisterPage.goToRegisterPage()
-    RegisterPage.fillForm('Praça 08', 'testexample.com', '07144000', '2000', 'Rua dos bobos')
+    RegisterPage.fillForm(point)
     RegisterPage.submit()
     RegisterPage.verifyError('Informe um email válido')
   })
 
   it('Não deve realizar cadastro com cep inválido', () => {
+    let point = generatePoint()
+    point.zipCode = '0000'
+
     RegisterPage.goToRegisterPage()
-    RegisterPage.fillForm('Praça 08', 'test@example.com', '0000', '2000', 'Rua dos bobos')
+    RegisterPage.fillForm(point)
     RegisterPage.verifyError('Informe um CEP válido')
   })
 
