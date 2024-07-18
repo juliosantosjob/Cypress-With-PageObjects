@@ -8,14 +8,14 @@ describe('Cadastro', () => {
   it('Cadastro de ponto de doação com sucesso', () => { 
     RegisterPage.accessRegisterPage()
     RegisterPage.fillForm('Praça 08', 'test@example.com', '07144000', '2000', 'Rua dos bobos')
-    RegisterPage.submitForm()
+    RegisterPage.submit()
     RegisterPage.verifyRegisterDonation('Você fez a diferença!')
   })
 
   it('Não deve realizar cadastro com email invalido', () => {
     RegisterPage.accessRegisterPage()
     RegisterPage.fillForm('Praça 08', 'testexample.com', '07144000', '2000', 'Rua dos bobos')
-    RegisterPage.submitForm()
+    RegisterPage.submit()
     RegisterPage.verifyError('Informe um email válido')
   })
 
