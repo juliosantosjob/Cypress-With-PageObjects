@@ -2,8 +2,10 @@ import RegisterPage from '../pages/register.page'
 import HomePage from '../pages/home.page'
 
 describe('Cadastro', () => {
+  
+  beforeEach(() => HomePage.goToHome())
+  
   it('Cadastro de ponto de doação com sucesso', () => { 
-    HomePage.goToHome()
     RegisterPage.accessRegisterPage()
     RegisterPage.fillForm('Praça 08', 'test@example.com', '07144000', '2000', 'Rua dos bobos')
     RegisterPage.submitForm()
@@ -11,7 +13,6 @@ describe('Cadastro', () => {
   })
 
   it('Não deve realizar cadastro com email invalido', () => {
-    HomePage.goToHome()
     RegisterPage.accessRegisterPage()
     RegisterPage.fillForm('Praça 08', 'testexample.com', '07144000', '2000', 'Rua dos bobos')
     RegisterPage.submitForm()
@@ -19,14 +20,12 @@ describe('Cadastro', () => {
   })
 
   it('Não deve realizar cadastro com cep inválido', () => {
-    HomePage.goToHome()
     RegisterPage.accessRegisterPage()
     RegisterPage.fillForm('Praça 08', 'test@example.com', '0000', '2000', 'Rua dos bobos')
     RegisterPage.verifyError('Informe um CEP válido')
   })
 
   it('Não deve realizar cadastro com campos obrigatórios em branco', () => {
-    HomePage.goToHome()
     RegisterPage.accessRegisterPage()
     RegisterPage.submitForm()
 
