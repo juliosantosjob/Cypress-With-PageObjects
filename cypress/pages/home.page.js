@@ -1,9 +1,11 @@
+
+import { ELEMENTS } from "../elements/home.element"
 class HomePage {
 
     goToHome() {
-        // Visit the homepage of the site
-        cy.visit('https://petlov.vercel.app')
-        cy.get('h1').should('have.text', 'Conectando corações, mudando vidas!')
+        cy.visit('/')
+        cy.get(ELEMENTS.tagTitle)
+            .should('have.text', 'Conectando corações, mudando vidas!')
     }
 }
 

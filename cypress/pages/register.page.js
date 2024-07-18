@@ -1,37 +1,42 @@
+import { ELEMENTS } from '../elements/register.element'
+import HomePage from '../pages/home.page'
+
 class RegisterPage {
 
     accessRegisterPage() {
-        // Access the register page
-        cy.get('strong').click()
-        cy.get('h1').should('have.text', 'Cadastro de ponto de doação')
+        cy.get(ELEMENTS.buttonRegistDonation).click()
+        cy.get(ELEMENTS.tagTitle)
+            .should('have.text', 'Cadastro de ponto de doação')
     }
 
     fillForm(nome, email, cep, number, addressDetails) {
-        // fill the form
-        cy.get('input[name="name"]').type(nome)
-        cy.get('input[name="email"]').type(email)
-        cy.get('input[name="cep"]').type(cep)
-
-        cy.get('input[type="button"]').click()
-        cy.get('input[type="number"]').type(number)
-
-        cy.get('input[name="addressDetails"]').type(addressDetails)
-        cy.get('img[alt="Cachorros"]').click()
+        cy.intercept(ELEMENTS.urlCep).as('postCep')
+        cy.get(ELEMENTS.inputName).type(nome)
+        cy.get(ELEMENTS.inputEmail).type(email)
+        cy.get(ELEMENTS.inputCep).type(cep)
+        cy.get(ELEMENTS.buttonSearchCep).click().wait('@postCep')
+        cy.get(ELEMENTS.inputNumber).type(number)
+        cy.get(ELEMENTS.inputAddressDetails).type(addressDetails)
+        cy.get(ELEMENTS.imgCachorros).click()
     }
 
     submit() {
-        cy.get('button[type="submit"]').click()
+        cy.get(ELEMENTS.buttonSubmit).click()
     }
 
     verifyRegisterDonation(message) {
-        // Verify if the donation point was created
-        cy.contains('h1', message)
+        cy.contains(ELEMENTS.tagTitle, message)
             .should('be.visible')
     }
 
     verifyError(error) {
-        // Veriy if error message was shown
-        cy.contains('.alert-error', error).should('be.visible')
+        cy.contains(ELEMENTS.toastAlert, error)
+            .should('be.visible')
+    }
+
+    goToRegisterPage() {
+        HomePage.goToHome()
+        this.accessRegisterPage()
     }
 }
 
