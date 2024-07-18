@@ -19,7 +19,7 @@ class RegisterPage {
         cy.get('img[alt="Cachorros"]').click()
     }
 
-    submitForm() {
+    submit() {
         cy.get('button[type="submit"]').click()
     }
 
