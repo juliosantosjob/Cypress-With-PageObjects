@@ -1,15 +1,15 @@
 
-export const ELEMENTS_REGISTER  = {
+export const ELM_REGISTER  = {
     buttonRegistDonation: 'strong',
-    tagDescriptionDonation: 'p',
-    urlCep: 'https://viacep.com.br/**',
-    inputName: '[name="name"]',
-    inputEmail: '[name="email"]',
-    inputCep: '[name="cep"]',
     buttonSearchCep: '[type="button"]',
-    inputNumber: '[type="number"]',
-    inputAddressDetails: '[name="addressDetails"]',
-    imgCachorros: '[alt="Cachorros"]',
     buttonSubmit: '[type="submit"]',
-    toastAlert: '[class="alert-error"]'
+    imgCachorros: '[alt="Cachorros"]',
+    inputAddressDetails: '[name="addressDetails"]',
+    inputCep: '[name="cep"]',
+    inputEmail: '[name="email"]',
+    inputName: '[name="name"]',
+    inputNumber: '[type="number"]',
+    tagDescriptionDonation: 'p',
+    toastAlert: '[class="alert-error"]',
+    urlCep: 'https://viacep.com.br/**'
 }
