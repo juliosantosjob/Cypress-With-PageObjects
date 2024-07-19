@@ -4,7 +4,7 @@ class HomePage {
 
     goToHome() {
         cy.visit('/')
-        cy.get(ELEMENTS_HOME.tagTitle).should('have.text',
+        cy.get(ELM_HOME.tagTitle).should('have.text',
             'Conectando corações, mudando vidas!')
     }
 }
