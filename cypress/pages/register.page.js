@@ -1,38 +1,38 @@
-import { ELEMENTS_REGISTER } from '../elements/register.element'
-import { ELEMENTS_HOME } from '../elements/home.element'
+import { ELM_REGISTER } from '../elements/register.element'
+import { ELM_HOME } from '../elements/home.element'
 
 import HomePage from '../pages/home.page'
 
 class RegisterPage {
 
     accessRegisterPage() {
-        cy.get(ELEMENTS_REGISTER.buttonRegistDonation).click()
+        cy.get(ELM_HOME.buttonRegistDonation).click()
         cy.get(ELEMENTS_HOME.tagTitle).should('have.text',
             'Cadastro de ponto de doação')
     }
 
     fillForm(point) {
-        cy.intercept(ELEMENTS_REGISTER.urlCep).as('postCep')
-        cy.get(ELEMENTS_REGISTER.inputName).type(point.name)
-        cy.get(ELEMENTS_REGISTER.inputEmail).type(point.email)
-        cy.get(ELEMENTS_REGISTER.inputCep).type(point.zipCode)
-        cy.get(ELEMENTS_REGISTER.buttonSearchCep).click().wait('@postCep')
-        cy.get(ELEMENTS_REGISTER.inputNumber).type(point.number)
-        cy.get(ELEMENTS_REGISTER.inputAddressDetails).type(point.addressDetails)
-        cy.get(ELEMENTS_REGISTER.imgCachorros).click()
+        cy.intercept(ELM_REGISTER.urlCep).as('postCep')
+        cy.get(ELM_REGISTER.inputName).type(point.name)
+        cy.get(ELM_REGISTER.inputEmail).type(point.email)
+        cy.get(ELM_REGISTER.inputCep).type(point.zipCode)
+        cy.get(ELM_REGISTER.buttonSearchCep).click().wait('@postCep')
+        cy.get(ELM_REGISTER.inputNumber).type(point.number)
+        cy.get(ELM_REGISTER.inputAddressDetails).type(point.addressDetails)
+        cy.get(ELM_REGISTER.imgCachorros).click()
     }
 
     submit() {
-        cy.get(ELEMENTS_REGISTER.buttonSubmit).click()
+        cy.get(ELM_REGISTER.buttonSubmit).click()
     }
 
     verifyRegisterDonation(message) {
-        cy.contains(ELEMENTS_REGISTER.tagTitle, message)
+        cy.contains(ELM_REGISTER.tagTitle, message)
             .should('be.visible')
     }
 
     verifyError(error) {
-        cy.contains(ELEMENTS_REGISTER.toastAlert, error)
+        cy.contains(ELM_REGISTER.toastAlert, error)
             .should('be.visible')
     }
 
