@@ -1,4 +1,4 @@
-import { ELEMENTS_HOME } from "../elements/home.element"
+import { ELM_HOME } from "../elements/home.element"
 
 class HomePage {
 
