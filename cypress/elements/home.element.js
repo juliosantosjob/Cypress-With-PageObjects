@@ -1,4 +1,4 @@
 
-export const ELEMENTS_HOME = {
+export const ELM_HOME = {
     tagTitle: 'h1',
 }
