@@ -5,7 +5,7 @@ import HomePage from '../pages/home.page'
 
 class RegisterPage {
 
-    accessRegisterPage() {
+    openRegisterPage() {
         cy.get(ELM_HOME.buttonRegistDonation).click()
         cy.get(ELEMENTS_HOME.tagTitle).should('have.text',
             'Cadastro de ponto de doação')
