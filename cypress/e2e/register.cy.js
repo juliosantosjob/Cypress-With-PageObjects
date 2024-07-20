@@ -5,7 +5,7 @@ describe('Cadastro', () => {
   it('Cadastro de ponto de doação com sucesso', () => {
     let point = generatePoint()
 
-    RegisterPage.goToRegisterPage()
+    RegisterPage.openRegisterPage()
     RegisterPage.fillForm(point)
     RegisterPage.submit()
     RegisterPage.verifyRegisterDonation('Você fez a diferença!')
@@ -15,7 +15,7 @@ describe('Cadastro', () => {
     let point = generatePoint()
     point.email = 'example.com'
 
-    RegisterPage.goToRegisterPage()
+    RegisterPage.openRegisterPage()
     RegisterPage.fillForm(point)
     RegisterPage.submit()
     RegisterPage.verifyError('Informe um email válido')
@@ -25,13 +25,13 @@ describe('Cadastro', () => {
     let point = generatePoint()
     point.zipCode = '0000'
 
-    RegisterPage.goToRegisterPage()
+    RegisterPage.openRegisterPage()
     RegisterPage.fillForm(point)
     RegisterPage.verifyError('Informe um CEP válido')
   })
 
   it('Não deve realizar cadastro com campos obrigatórios em branco', () => {
-    RegisterPage.goToRegisterPage()
+    RegisterPage.openRegisterPage()
     RegisterPage.submit()
 
     const messages = [
