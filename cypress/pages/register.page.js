@@ -5,7 +5,7 @@ class RegisterPage {
 
     openRegisterPage() {
         cy.visit('/signup')
-        cy.get(ELM_HOME.buttonRegistDonation).click()
+        cy.get(ELM_REGISTER.buttonRegistDonation).click()
         cy.get(ELM_HOME.tagTitle).should('have.text',
             'Cadastro de ponto de doação')
     }
