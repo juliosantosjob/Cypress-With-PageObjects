@@ -1,11 +1,10 @@
 import { ELM_REGISTER } from '../elements/register.element'
 import { ELM_HOME } from '../elements/home.element'
 
-import HomePage from '../pages/home.page'
-
 class RegisterPage {
 
     openRegisterPage() {
+        cy.visit('/signup')
         cy.get(ELM_HOME.buttonRegistDonation).click()
         cy.get(ELEMENTS_HOME.tagTitle).should('have.text',
             'Cadastro de ponto de doação')
@@ -34,11 +33,6 @@ class RegisterPage {
     verifyError(error) {
         cy.contains(ELM_REGISTER.toastAlert, error)
             .should('be.visible')
-    }
-
-    goToRegisterPage() {
-        HomePage.goToHome()
-        this.accessRegisterPage()
     }
 }
 
