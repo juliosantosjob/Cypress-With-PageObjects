@@ -16,13 +16,13 @@ npm (gerenciador de pacotes)
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/juliosantosjob/Cypress-With-PageObjets.git
+git clone https://github.com/juliosantosjob/Cypress-With-PageObjects.git
 ```
 
 2. Navegue para o diretório do projeto:
 
 ```bash
-cd Cypress-With-PageObjets
+cd Cypress-With-PageObjects
 ```
 
 3. Instale as dependências:
